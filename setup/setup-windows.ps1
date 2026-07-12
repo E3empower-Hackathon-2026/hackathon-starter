@@ -90,7 +90,7 @@ git config --global user.name  "$GitName"
 git config --global user.email "$GitEmail"
 git config --global init.defaultBranch main
 git config --global core.autocrlf true
-Write-Host "[ok] Git identity: $GitName <$GitEmail>" -ForegroundColor Green
+Write-Host "[ok] Git identity: $GitName <$($GitEmail)>" -ForegroundColor Green
 
 # --- 4. Verification summary ----------------------------------------------------
 Write-Host ""
@@ -101,7 +101,7 @@ foreach ($tool in @("git", "gh", "node", "npm", "opencode", "netlify")) {
         $version = (& $tool --version 2>&1 | Select-Object -First 1)
         Write-Host ("[ok] {0,-9} {1}" -f $tool, $version) -ForegroundColor Green
     } else {
-        Write-Host ("[!!] {0,-9} MISSING" -f $tool) -ForegroundColor Red
+        Write-Host ("[`!`!] {0,-9} MISSING" -f $tool) -ForegroundColor Red
         $allOk = $false
     }
 }
