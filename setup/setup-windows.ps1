@@ -1,7 +1,7 @@
-# E3 Hackathon — Windows machine setup
+# E3 Hackathon -- Windows machine setup
 #
 # Installs everything a participant machine needs: Git (incl. Git Bash),
-# GitHub CLI, Node.js LTS, opencode, and Netlify CLI. Idempotent — safe to
+# GitHub CLI, Node.js LTS, opencode, and Netlify CLI. Idempotent -- safe to
 # re-run; a second run acts as a verification pass.
 #
 # Run from a regular (non-admin) PowerShell:
@@ -50,15 +50,17 @@ $packages = @(
     @{ Id = "OpenJS.NodeJS.LTS"; Tool = "node"; Label = "Node.js LTS" }
 )
 
+# --source winget: the msstore source uses certificate pinning, which fails on
+# networks with SSL inspection (school/institutional proxies). We don't need it.
 foreach ($p in $packages) {
     if (Test-Tool $p.Tool) {
         Write-Host "[ok] $($p.Label) already installed" -ForegroundColor Green
     } else {
         Write-Host "[..] Installing $($p.Label)..." -ForegroundColor Yellow
-        winget install --id $p.Id -e --silent --accept-package-agreements --accept-source-agreements
+        winget install --id $p.Id -e --source winget --silent --accept-package-agreements --accept-source-agreements
         Refresh-Path
         if (-not (Test-Tool $p.Tool)) {
-            Write-Host "[!!] $($p.Label) installed but '$($p.Tool)' not on PATH yet — close this window, open a NEW PowerShell, and re-run the script." -ForegroundColor Red
+            Write-Host "[!!] $($p.Label) installed but '$($p.Tool)' not on PATH yet -- close this window, open a NEW PowerShell, and re-run the script." -ForegroundColor Red
             exit 1
         }
         Write-Host "[ok] $($p.Label) installed" -ForegroundColor Green
@@ -90,7 +92,7 @@ git config --global user.name  "$GitName"
 git config --global user.email "$GitEmail"
 git config --global init.defaultBranch main
 git config --global core.autocrlf true
-Write-Host "[ok] Git identity: $GitName <$($GitEmail)>" -ForegroundColor Green
+Write-Host "[ok] Git identity: $GitName <$GitEmail>" -ForegroundColor Green
 
 # --- 4. Verification summary ----------------------------------------------------
 Write-Host ""
@@ -101,22 +103,22 @@ foreach ($tool in @("git", "gh", "node", "npm", "opencode", "netlify")) {
         $version = (& $tool --version 2>&1 | Select-Object -First 1)
         Write-Host ("[ok] {0,-9} {1}" -f $tool, $version) -ForegroundColor Green
     } else {
-        Write-Host ("[`!`!] {0,-9} MISSING" -f $tool) -ForegroundColor Red
+        Write-Host ("[!!] {0,-9} MISSING" -f $tool) -ForegroundColor Red
         $allOk = $false
     }
 }
 
-# --- 5. Manual steps (interactive logins — can't be scripted) --------------------
+# --- 5. Manual steps (interactive logins -- can't be scripted) --------------------
 Write-Host ""
 Write-Host "=== Remaining manual steps (instructor, per machine) ===" -ForegroundColor Cyan
 Write-Host "  1. gh auth login        (GitHub.com > HTTPS > login with browser, as the participant)"
 Write-Host "  2. opencode auth login  (paste the instructor-held API key for this team)"
-Write-Host "  3. netlify login        (team Netlify account — needed for Day 4 /publish)"
+Write-Host "  3. netlify login        (team Netlify account -- needed for Day 4 /publish)"
 Write-Host "  4. Create the team's project folder from the E3 starter template"
 Write-Host ""
 if ($allOk) {
     Write-Host "Machine ready (pending manual logins above)." -ForegroundColor Green
 } else {
-    Write-Host "Some tools are missing — fix the [!!] lines above and re-run." -ForegroundColor Red
+    Write-Host "Some tools are missing -- fix the [!!] lines above and re-run." -ForegroundColor Red
     exit 1
 }

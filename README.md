@@ -1,8 +1,6 @@
 # E3 Hackathon Harness
 
-The skeleton repo for the Arusha Agentic Coding Hackathon — clone this onto every machine. It contains the machine setup scripts, the opencode slash commands, and the plugins that abstract version management away from participants with no coding experience. They say **checkpoint** and **rewind**; git happens underneath.
-
-Planning docs live in the Obsidian vault: `Tanzania 2026/Hackathon/` (see "Hackathon Project Harness" and "Next Steps").
+The skeleton repo for the Arusha Agentic Coding Hackathon — clone this onto every machine. It contains the machine setup scripts, the opencode slash commands, and the plugins that abstract version management away from participants with no coding experience.
 
 ## Quick start (instructor, per machine)
 
