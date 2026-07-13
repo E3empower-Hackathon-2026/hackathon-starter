@@ -12,11 +12,17 @@
  * always shows the latest edit.
  */
 
-import { tool } from "@opencode-ai/plugin"
 import { createServer } from "node:http"
 import { networkInterfaces } from "node:os"
 import { extname, join, resolve, sep } from "node:path"
 import { existsSync, readFileSync, statSync } from "node:fs"
+
+// The tool() helper from "@opencode-ai/plugin" is only a typing convenience
+// (it returns its input), and local plugins cannot resolve that package
+// without a package.json + install step — importing it makes opencode skip
+// the whole plugin silently (github.com/sst/opencode/issues/3001). Plain
+// objects register the same way, so we declare tools without the import.
+const tool = (definition) => definition
 
 const FIRST_PORT = 3000
 const LAST_PORT = 3019
