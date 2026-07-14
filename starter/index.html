@@ -3,180 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AirSafari — Find Your Perfect Safari</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Your app starts here</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #f4ede3;
+      color: #333;
+      text-align: center;
+      padding: 1rem;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      max-width: 420px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    h1 { font-size: 1.6rem; margin: 0 0 0.75rem; }
+    p { line-height: 1.5; margin: 0.5rem 0; }
+    .emoji { font-size: 3rem; }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="logo">
-        <span class="logo-icon">🌍</span>
-        <span class="logo-text">AirSafari</span>
-      </div>
-      <nav>
-        <a href="#" class="nav-link">Become a Guide</a>
-        <a href="#" class="nav-link">Sign In</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <h1>Discover Tanzania's Wild Side</h1>
-      <p>Connect with local guides for unforgettable safari experiences</p>
-      <div class="search-bar">
-        <div class="search-field">
-          <label>Where</label>
-          <input type="text" placeholder="Search destinations...">
-        </div>
-        <div class="search-field">
-          <label>When</label>
-          <input type="text" placeholder="Add dates">
-        </div>
-        <div class="search-field">
-          <label>Who</label>
-          <input type="text" placeholder="Add guests">
-        </div>
-        <button class="search-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.35-4.35"></path>
-          </svg>
-          Search
-        </button>
-      </div>
-    </section>
-
-    <section class="categories">
-      <div class="category active">
-        <span class="cat-icon">🦁</span>
-        <span>All Safaris</span>
-      </div>
-      <div class="category">
-        <span class="cat-icon">🏔️</span>
-        <span>Kilimanjaro</span>
-      </div>
-      <div class="category">
-        <span class="cat-icon">🦒</span>
-        <span>Serengeti</span>
-      </div>
-      <div class="category">
-        <span class="cat-icon">🌋</span>
-        <span>Ngorongoro</span>
-      </div>
-      <div class="category">
-        <span class="cat-icon">🐘</span>
-        <span>Tarangire</span>
-      </div>
-      <div class="category">
-        <span class="cat-icon">🌊</span>
-        <span>Zanzibar</span>
-      </div>
-      <div class="category">
-        <span class="cat-icon">🦛</span>
-        <span>Lake Manyara</span>
-      </div>
-      <div class="category">
-        <span class="cat-icon">🌅</span>
-        <span>Sunset Tours</span>
-      </div>
-    </section>
-
-    <section class="listings">
-      <div class="listing-card">
-        <div class="listing-image" style="background: url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600&q=80') center/cover;">
-          <span class="listing-badge">Top Rated</span>
-        </div>
-        <div class="listing-info">
-          <div class="listing-header">
-            <h3>Serengeti Great Migration</h3>
-            <span class="rating">★ 4.97</span>
-          </div>
-          <p class="listing-guide">Guide: Juma M.</p>
-          <p class="listing-details">3 days · All inclusive</p>
-          <p class="listing-price"><strong>$450</strong> per person</p>
-        </div>
-      </div>
-
-      <div class="listing-card">
-        <div class="listing-image" style="background: url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80') center/cover;">
-          <span class="listing-badge">Popular</span>
-        </div>
-        <div class="listing-info">
-          <div class="listing-header">
-            <h3>Ngorongoro Crater Day Trip</h3>
-            <span class="rating">★ 4.92</span>
-          </div>
-          <p class="listing-guide">Guide: Amina K.</p>
-          <p class="listing-details">1 day · Lunch included</p>
-          <p class="listing-price"><strong>$280</strong> per person</p>
-        </div>
-      </div>
-
-      <div class="listing-card">
-        <div class="listing-image" style="background: url('https://images.unsplash.com/photo-1609198092458-90485e6f850a?w=600&q=80') center/cover;">
-        </div>
-        <div class="listing-info">
-          <div class="listing-header">
-            <h3>Kilimanjaro Base Camp Trek</h3>
-            <span class="rating">★ 4.88</span>
-          </div>
-          <p class="listing-guide">Guide: Baraka T.</p>
-          <p class="listing-details">5 days · Full expedition</p>
-          <p class="listing-price"><strong>$890</strong> per person</p>
-        </div>
-      </div>
-
-      <div class="listing-card">
-        <div class="listing-image" style="background: url('https://images.unsplash.com/photo-1557296519-4df37635e2e5?w=600&q=80') center/cover;">
-          <span class="listing-badge">New</span>
-        </div>
-        <div class="listing-info">
-          <div class="listing-header">
-            <h3>Tarangire Elephant Safari</h3>
-            <span class="rating">★ 4.85</span>
-          </div>
-          <p class="listing-guide">Guide: Neema S.</p>
-          <p class="listing-details">2 days · Camping included</p>
-          <p class="listing-price"><strong>$320</strong> per person</p>
-        </div>
-      </div>
-
-      <div class="listing-card">
-        <div class="listing-image" style="background: url('https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=600&q=80') center/cover;">
-        </div>
-        <div class="listing-info">
-          <div class="listing-header">
-            <h3>Sunset Safari & Bush Dinner</h3>
-            <span class="rating">★ 4.95</span>
-          </div>
-          <p class="listing-guide">Guide: Hassan R.</p>
-          <p class="listing-details">Half day · Dinner included</p>
-          <p class="listing-price"><strong>$180</strong> per person</p>
-        </div>
-      </div>
-
-      <div class="listing-card">
-        <div class="listing-image" style="background: url('https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?w=600&q=80') center/cover;">
-          <span class="listing-badge">Best Value</span>
-        </div>
-        <div class="listing-info">
-          <div class="listing-header">
-            <h3>Zanzibar Beach & Spice Tour</h3>
-            <span class="rating">★ 4.90</span>
-          </div>
-          <p class="listing-guide">Guide: Fatima A.</p>
-          <p class="listing-details">2 days · Beach access</p>
-          <p class="listing-price"><strong>$210</strong> per person</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2026 AirSafari · Built in Arusha, Tanzania</p>
-  </footer>
-
-  <script src="app.js"></script>
+  <div class="card">
+    <div class="emoji">🚀</div>
+    <h1>Your app will appear here</h1>
+    <p>Go back to opencode and describe what you want to build.</p>
+    <p>Then reload this page to see it.</p>
+  </div>
 </body>
 </html>
